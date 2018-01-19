@@ -13,3 +13,12 @@ Item.all.each do |item|
   item.save
   counter += 1
 end
+
+
+5.times do |i|
+  User.create(email: "user#{i}@gmail.com", password: "password")
+end
+
+5.times do |i|
+  Cart.create
+end

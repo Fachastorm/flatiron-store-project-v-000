@@ -1,3 +1,14 @@
 class OrdersController < ApplicationController
+    
+    def create 
+        if current_user.current_cart != nil 
+            @current_cart = current_user.current_cart
+        else current_user.current_cart = current_user.carts.create(user_id: current_user.id)
+            @current_cart = current_user.current_cart
+        end
+        
+        line_item = @current_cart.add_item(params[:item_id])
+            
+            
 
 end
